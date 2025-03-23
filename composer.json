@@ -7,7 +7,7 @@
         "webhook"
     ],
     "type": "library",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -26,10 +26,20 @@
             "Shimoning\\FreeeSdk\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shimoning\\FreeeSdk\\Laravel\\FreeeServiceProvider"
+            ],
+            "aliases": {
+                "FreeeWebhook": "Shimoning\\FreeeSdk\\Laravel\\Facade\\FreeeWebhook"
+            }
+        }
+    },
     "scripts": {
         "test": "phpunit",
-        "cs:check": "php-cs-fixer fix --config=./php_cs.dist --dry-run --diff --verbose",
-        "cs:fix": "php-cs-fixer fix --config=./php_cs.dist --verbose",
+        "cs:check": "php-cs-fixer fix --dry-run --diff --verbose",
+        "cs:fix": "php-cs-fixer fix --verbose",
         "md": "phpmd src text phpmd.xml",
         "stan": "phpstan analyse"
     }

@@ -1,22 +1,45 @@
 # Freee SDK for PHP
+
 現在は Webhook のみ対応。
 
 API は未対応。
 
-
 ## Webhook
+
 対応状況
 
 | データ種別       | 作成 | 更新 | 削除 |
-|------------------|:----:|:----:|:----:|
+| ---------------- | :--: | :--: | :--: |
 | [会計]経費精算   |  x   |  x   |  -   |
 | [会計]各種申請   |  x   |  x   |  -   |
 | [会計]支払依頼   |  x   |  x   |  -   |
 | [人事労務]従業員 |  x   |  x   |  x   |
 
-
 ## API
-*未対応*
 
-[公式提供SDK](https://github.com/freee/freee-accounting-sdk-php)
- -- メンテナンス停止中
+_未対応_
+
+[公式提供 SDK](https://github.com/freee/freee-accounting-sdk-php)
+-- 2023 年 4 月にメンテナンス終了済み
+
+## for Laravel
+
+### 環境変数
+
+`.env` などで指定する。
+
+- 検証用トークン: `FREEE_VERIFICATION_TOKEN`
+- デバッグログ: `FREEE_WEBHOOK_LOGGING`
+  - false : 出力しない
+  - true : デフォルトのチャンネルに出力
+  - 文字列 : 指定したチャンネルに出力
+
+### config
+
+#### ファイルの配置
+
+.env で設定するなら不要。
+
+```cli
+php artisan vendor:publish --provider="Shimoning\FreeeSdk\Laravel\FreeeServiceProvider" --tag=config
+```
