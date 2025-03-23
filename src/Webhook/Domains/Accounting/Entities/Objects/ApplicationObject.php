@@ -49,13 +49,13 @@ class ApplicationObject extends EventObject
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'id'              => $this->id,
             'company_id'      => $this->companyId,
             'status'          => $this->status->value,
             'approval_action' => $this->approvalAction->value ?? null,
             'applicant_id'    => $this->applicantId,
             'actor_id'        => $this->actorId,
-        ];
+        ], fn ($value) => $value !== null);
     }
 }

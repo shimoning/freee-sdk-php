@@ -5,7 +5,7 @@ namespace Shimoning\FreeeSdk\Webhook;
 use Psr\Log\LoggerInterface;
 use Shimoning\FreeeSdk\Webhook\Domains\Common\Entities\Event;
 use Shimoning\FreeeSdk\Webhook\Utilities\VerificationToken;
-use Shimoning\FreeeSdk\Exceptions\InvalidVerificationTokenException;
+use Shimoning\FreeeSdk\Webhook\Exceptions\InvalidVerificationTokenException;
 
 class Handler
 {
@@ -29,7 +29,11 @@ class Handler
                 'expected' => $this->verificationToken,
                 'received' => VerificationToken::get(),
             ]);
-            VerificationToken::verify($this->verificationToken);
+            $verified = VerificationToken::verify($this->verificationToken);
+            if (!$verified) {
+                $this->logger?->debug('Token verification failed');
+                throw new InvalidVerificationTokenException('Invalid verification token', 400);
+            }
             $this->logger?->debug('Token verified');
         }
 

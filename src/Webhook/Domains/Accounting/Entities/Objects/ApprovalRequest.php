@@ -2,6 +2,6 @@
 
 namespace Shimoning\FreeeSdk\Webhook\Domains\Accounting\Entities\Objects;
 
-class ApprovalRequest extends ApplicationObject
+final class ApprovalRequest extends ApplicationObject
 {
 }

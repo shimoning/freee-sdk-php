@@ -5,7 +5,7 @@ namespace Shimoning\FreeeSdk\Laravel\Facade;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Shimoning\FreeeSdk\Webhook\Domains\Common\Entities\Event handle(string|array $payload, bool $verify = true)
+ * @method static \Shimoning\FreeeSdk\Webhook\Domains\Common\Entities\Event handle(string|array<string, string|int|array<string, string|int>> $payload, bool $verify = true)
  * @see \Shimoning\FreeeSdk\Webhook\Handler
  */
 class FreeeWebhook extends Facade

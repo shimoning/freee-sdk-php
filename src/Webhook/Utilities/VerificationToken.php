@@ -2,8 +2,6 @@
 
 namespace Shimoning\FreeeSdk\Webhook\Utilities;
 
-use Shimoning\FreeeSdk\Exceptions\InvalidVerificationTokenException;
-
 /**
  * Class VerificationToken
  */
@@ -14,16 +12,12 @@ class VerificationToken
     /**
      * Get the verification token from the request headers
      *
-     * @return string
-     * @throws InvalidVerificationTokenException
+     * @SuppressWarnings("PHPMD.Superglobals")
+     * @return string | null
      */
-    public static function get(): string
+    public static function get(): ?string
     {
-        if (!isset($_SERVER[self::KEY])) {
-            throw new InvalidVerificationTokenException('Verification token not found', 400);
-        }
-
-        return $_SERVER[self::KEY];
+        return $_SERVER[self::KEY] ?? null;
     }
 
     /**
@@ -31,14 +25,9 @@ class VerificationToken
      *
      * @param string $token
      * @return boolean
-     * @throws InvalidVerificationTokenException
      */
     public static function verify(string $token): bool
     {
-        if (self::get() === $token) {
-            return true;
-        }
-
-        throw new InvalidVerificationTokenException('Invalid verification token', 400);
+        return self::get() === $token;
     }
 }

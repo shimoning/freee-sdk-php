@@ -74,10 +74,18 @@ abstract class Event
      * json から Event を生成する
      * @param string $json
      * @return self
+     * @throws InvalidArgumentException
      */
     public static function fromJson(string $json): self
     {
-        return static::fromArray(json_decode($json, true));
+        $array = json_decode($json, true);
+        if ($array === null) {
+            throw new InvalidArgumentException('Invalid JSON: ' . json_last_error_msg());
+        }
+        if (!is_array($array)) {
+            throw new InvalidArgumentException('Not an Array');
+        }
+        return static::fromArray($array);
     }
 
     /**
@@ -87,14 +95,14 @@ abstract class Event
      */
     public function toArray(): array
     {
-        return [
+        return array_filter([
             'id'              => $this->id,
             'application_id'  => $this->applicationId,
             'resource'        => $this->resource,
             'action'          => $this->action->value,
             'created_at'      => $this->createdAt,
             $this->objectName => $this->eventObject->toArray(),
-        ];
+        ], fn ($value) => $value !== null);
     }
 
     /**
