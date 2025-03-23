@@ -7,7 +7,8 @@
 API は未対応。
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-[![PHP](https://img.shields.io/badge/PHP-ccc.svg?logo=php&style=flat)](LICENSE)
+![PHP](https://img.shields.io/badge/PHP-ccc.svg?logo=php&style=flat)
+[![Coverage](https://codecov.io/gh/shimoning/freee-sdk-php/graph/badge.svg)]
 
 ## Webhook
 
@@ -15,10 +16,10 @@ API は未対応。
 
 | データ種別       | 作成 | 更新 | 削除 |
 | ---------------- | :--: | :--: | :--: |
-| [会計]経費精算   |  x   |  x   |  -   |
+| [会計]経費精算   |  o   |  o   |  -   |
 | [会計]各種申請   |  x   |  x   |  -   |
 | [会計]支払依頼   |  x   |  x   |  -   |
-| [人事労務]従業員 |  x   |  x   |  x   |
+| [人事労務]従業員 |  o   |  o   |  o   |
 
 ## API
 
