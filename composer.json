@@ -7,7 +7,7 @@
         "webhook"
     ],
     "type": "library",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "license": "MIT",
     "require": {
         "php": "^8.1",
@@ -38,6 +38,7 @@
     },
     "scripts": {
         "test": "phpunit",
+        "coverage": "XDEBUG_MODE=coverage phpunit --coverage-html='.coverage' --coverage-clover='clover.xml'",
         "cs:check": "php-cs-fixer fix --dry-run --diff --verbose",
         "cs:fix": "php-cs-fixer fix --verbose",
         "md": "phpmd src text phpmd.xml",
