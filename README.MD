@@ -1,8 +1,13 @@
 # Freee SDK for PHP
 
+[Freee]() の PHP 用 SDK です。
+
 現在は Webhook のみ対応。
 
 API は未対応。
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![PHP](https://img.shields.io/badge/PHP-ccc.svg?logo=php&style=flat)](LICENSE)
 
 ## Webhook
 
