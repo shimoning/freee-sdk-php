@@ -3,7 +3,15 @@ name: CI
 on:
   workflow_dispatch:
   push:
+    branches:
+      - master
+    paths:
+      - "**.php"
+      - "phpunit.xml"
   pull_request:
+    paths:
+      - "**.php"
+      - "phpunit.xml"
 
 jobs:
   test:
